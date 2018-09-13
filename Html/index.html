@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Css/index.css">
+    <script src="/Js/jquery.min.js"></script>
+    <script src="/Js/bootstrap.min.js"></script>
+    <script src="/Js/index.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <h1 class="heading">MyNotes</h1>
+        <hr class="style13">
+    </div>
+
+    <!-- Nav-Bar -->
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li><a data-toggle="tab" href="#about">About</a></li>
+            <li><a data-toggle="tab" href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Nav-Bar discription -->
+        <div class="tab-content">
+            <!-- For home panel -->
+            <div id="home" class="tab-pane fade in active">
+                <div class="container">
+                    <h2 class="note">"This <span style="color:blue">MyNotes</span> WebApplication helps you to have a Private
+                        Account where you can write your <span style="color:rgb(0, 255, 21)">notes</span>.."
+                        <br>"Create your Private account to write <span style="color:rgb(0, 255, 21)">notes</span>.."</h2>
+                    <center><button type="button" class="btn btn-default btn-lg loginn" id="myBtn">Login</button></center>
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="padding:35px 50px;">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4></span> Login</h4>
+                                </div>
+                                <div class="modal-body" style="padding:40px 50px;">
+                                  <form role="form" action = "/users/login" method="POST">
+                                    <div class="form-group">
+                                      <label for="usrname"> Username</label>
+                                      <input type="text" class="form-control" id="usrname" name = "name" placeholder="Enter email" required>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="psw"> Password</label>
+                                      <input type="password" class="form-control" id="psw" name = "pass" placeholder="Enter password" required>
+                                    </div>
+                                      <button type="submit" class="btn btn-success btn-block loginn"> Login</button>
+                                  </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">Cancel</button>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class = "style13">
+
+                <h3 class="options">Create Account</h3>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="name">Name : </label>
+                        <div class="col-sm-10">
+                            <input type="name" class="form-control" id="username" value = "" name="username" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="password">Password : </label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="signupButton"  type="submit" class="btn btn-default loginn">Signup</button>
+                        </div>
+                    </div>
+                   
+                </form>
+                <div class="panel-group" id = "success">
+                    <div class="panel panel-success">
+                        <div class="panel-heading" align="center">Signup SuccessFull<br>Please login</div>
+                    </div>
+                </div>
+                <div class="panel-group" id = "failure">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading" align="center">Username already exists!!!<br>Please try someother name..</div>
+                    </div>
+                </div>
+               
+               
+            </div>
+            <!-- For about panal -->
+            <div id="about" class="tab-pane fade">
+                <h2 class="note"><span style="color:blue">MyNotes</span> WebApplication provides a seperate Account where
+                    ypu can write your<span style="color:rgb(0, 255, 21)">notes</span>.."
+                    <br>"Create your Private account to write <span style="color:rgb(0, 255, 21)">notes</span>.."</h2><br>
+                <h2 class="note">"In <span style="color:blue">MyNotes</span> WebApplication you can write
+                    <span style="color:rgb(0, 255, 21)">notes</span>.."
+                    <br>"This<span style="color:rgb(0, 255, 21)"> notes</span> can be sent to anyone as <span style="color:rgb(255, 0, 200)">
+                        Email</span> in a specific date"</h2>
+
+                <br><br><br>
+                <hr class="style14">
+                <center>
+                    <h2 class="note">Other Works...</h2>
+                </center>
+                <h3 class="note">A Simple <span style="color:yellowgreen">Chating app </span>which explains a chating process
+                    in a single page..</h3>
+                <center><img src="/Images/Harincastle.png" class="images" /></center>
+                <h3 class="note">HarinCastle Chating Web App Link :: <span style="color:yellowgreen">https://fierce-brushlands-90275.herokuapp.com/</span></h4>
+                    <center><a href=">https://fierce-brushlands-90275.herokuapp.com/" class="a">Visit the Page</a></center>
+            </div>
+            <div id="contact" class="tab-pane fade">
+                <center> <img src="/Images/White_image.jpg" class="me" /></center>
+
+                <h2 class="note"><span style="color:blue;">Student</span> of <span style="color:chartreuse;">"St.Joseph's
+                        college of engineering"</span></h2><br><br>
+                <p class="ep">harincastle14@gmail.com</p>
+
+            </div>
+        </div>
+
+        <br><br>
+        <hr class="style13">
+        <div class="footer">
+            <p class="foot">Created By the HarinCastle</p>
+            <p class="foote">Developed by Sowndapan</p>
+        </div>
+
+</body>
+
+</html>

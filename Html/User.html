@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Css/index.css">
+    <script src="/Js/jquery.min.js"></script>
+    <script src="/Js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <h1 class="heading">MyNotes</h1>
+        <hr class="style13">
+    </div>
+
+
+    <!-- panel -->
+    <div class="container">
+
+        <div class="panel-group">
+            <div class="panel panel-success">
+                <div class="panel-heading" align="center">Welcome User</div>
+            </div>
+        </div>
+        <form action="/users/logout" methot="post">
+            <button type="submit" class="btn btn-default logout">Logout</button>
+        </form>
+
+
+
+
+        <!-- Nav-Bar -->
+        <div class="container" style="padding-top: 3%">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Add-Notes</a></li>
+                <li><a data-toggle="tab" href="#remind">Sent-notes</a></li>
+            </ul>
+
+            <!-- Nav-Bar discription -->
+            <div class="tab-content">
+                <!-- For Add-notes panel -->
+                <div id="home" class="tab-pane fade in active">
+
+
+                    <!-- <div class="container"> -->
+                    <h2 class="note">Create Notes...</h2>
+                    <br>
+                    <form class="form-horizontal" action = "/addsentnoteRouter/addnotes" method = "POST">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="title">Title : </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="mess">Message : </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mess" placeholder="Enter Message" name="message">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="date">Date : </label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default loginn">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- </div> -->
+
+                    <hr class="style13">
+                    <br>
+                    <h2 class="note">Your Notes</h2>
+                    <div class="allnotes">
+                        <center>
+                            <div class="panel panel-success templatenote">
+                                <div class="panel-heading">To : Email</div>
+                                <div class="panel-body">Content</div>
+                            </div>
+                            <center id = "notee">
+
+                            </center>
+                        </center>
+                    </div>
+                </div>
+                <div id="remind" class="tab-pane fade">
+                    <h2 class="note">Create Notes...</h2>
+                    <br>
+                    <form class="form-horizontal" action="/addsentnoteRouter/sentnote" method = "post">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="title">Title : </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Email : </label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" placeholder="Reciever Email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="mess">Message : </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mess" placeholder="Enter Message" name="mess">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="date">Date : </label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default loginn">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                    <hr class="style13">
+                    <br>
+                    <h2 class="note">Remainder Notes</h2>
+                    <div class="allnotes">
+                        <center>
+                            <div class="panel panel-success templatenote">
+                                <div class="panel-heading">To : Email</div>
+                                <div class="panel-body">Content</div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <hr class="style13">
+            <div class="footer">
+                <p class="foot">Created By the HarinCastle</p>
+                <p class="foote">Developed by Sowndapan</p>
+            </div>
+
+
+            <script>
+                $(document).ready(function () {
+                    $("#myBtn").click(function () {
+                        $("#myModal").modal();
+                    });
+                });
+            </script>
+
+</body>
+
+</html>
