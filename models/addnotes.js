@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 var addNotesSchema = new Schema({
     title:{
         type:String,
-        default:"No-title",
+        required:true
     },
     message:{
         type:String,
-        default:"Empty-message",
+        required:true
     },
     date:{
         type:Date,

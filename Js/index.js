@@ -31,3 +31,23 @@ $(document).ready(function () {
         });
     });    
 });
+
+// function loadData() {
+//     console.log("function loadData called");
+//     data = "";
+//     $.getJSON('/',function(data){
+//         var df = document.createDocumentFragment(document.getElementById("noteee"));
+//         putQues(data,df);
+//         $("#notee").append(df);
+//     });
+// }
+
+// function putnotes(obj,df) {
+//     obj.forEach(element => {
+//         var str = document.createElement("note");
+//         str.innerHTML = ' <div class="panel panel-success templatenote"><div class="panel-heading">'+ element.title +'</div><div class="panel-body">Message :: '+ element.message +'<br>'+ element.date +'</div></div>';
+//         df.appendChild(str);
+//     });
+// }
+
+// window.onload = loadData();

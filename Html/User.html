@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="/Css/index.css">
     <script src="/Js/jquery.min.js"></script>
     <script src="/Js/bootstrap.min.js"></script>
+    <script src="/Js/User.js"></script>
+    <title>MyNotes</title>
+    <link rel="icon" type="image/png" href="/Images/blanknote.png">
 
 </head>
 
 <body>
 
     <div>
-        <h1 class="heading">MyNotes</h1>
-        <hr class="style13">
+            <h1 class="heading">MyNotes <span><img class="icon" src ="/Images/blanknote.png" /></span></h1>
+            <hr class="style13">
     </div>
 
 
@@ -26,7 +29,7 @@
                 <div class="panel-heading" align="center">Welcome User</div>
             </div>
         </div>
-        <form action="/users/logout" methot="post">
+        <form action="/logout" method="GET">
             <button type="submit" class="btn btn-default logout">Logout</button>
         </form>
 
@@ -37,7 +40,6 @@
         <div class="container" style="padding-top: 3%">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Add-Notes</a></li>
-                <li><a data-toggle="tab" href="#remind">Sent-notes</a></li>
             </ul>
 
             <!-- Nav-Bar discription -->
@@ -49,20 +51,20 @@
                     <!-- <div class="container"> -->
                     <h2 class="note">Create Notes...</h2>
                     <br>
-                    <form class="form-horizontal" action = "/addsentnoteRouter/addnotes" method = "POST">
+                    <form class="form-horizontal">
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="title">Title : </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                                <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="mess">Message : </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="mess" placeholder="Enter Message" name="message">
+                                <input type="text" class="form-control" id="mess" placeholder="Enter Message" name="message" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="date">Date : </label>
                             <div class="col-sm-10">
@@ -71,10 +73,20 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default loginn">Add</button>
+                                <button id="addnote" type="submit" class="btn btn-default loginn">Add</button>
                             </div>
                         </div>
                     </form>
+                    <div class="panel-group" id="added">
+                        <div class="panel panel-success">
+                            <div class="panel-heading" align="center">Note added</div>
+                        </div>
+                    </div>
+                    <div class="panel-group" id="notadded">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading" align="center">Note not added.Please fill the fileds</div>
+                        </div>
+                    </div>
                     <!-- </div> -->
 
                     <hr class="style13">
@@ -83,58 +95,12 @@
                     <div class="allnotes">
                         <center>
                             <div class="panel panel-success templatenote">
-                                <div class="panel-heading">To : Email</div>
-                                <div class="panel-body">Content</div>
+                                <div class="panel-heading">Title</div>
+                                <div class="panel-body">Message :: <br> Date :: </div>
                             </div>
-                            <center id = "notee">
+                            <center id="notee">
 
                             </center>
-                        </center>
-                    </div>
-                </div>
-                <div id="remind" class="tab-pane fade">
-                    <h2 class="note">Create Notes...</h2>
-                    <br>
-                    <form class="form-horizontal" action="/addsentnoteRouter/sentnote" method = "post">
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="title">Title : </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="email">Email : </label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" placeholder="Reciever Email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="mess">Message : </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="mess" placeholder="Enter Message" name="mess">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="date">Date : </label>
-                            <div class="col-sm-10">
-                                <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default loginn">Add</button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr class="style13">
-                    <br>
-                    <h2 class="note">Remainder Notes</h2>
-                    <div class="allnotes">
-                        <center>
-                            <div class="panel panel-success templatenote">
-                                <div class="panel-heading">To : Email</div>
-                                <div class="panel-body">Content</div>
-                            </div>
                         </center>
                     </div>
                 </div>
