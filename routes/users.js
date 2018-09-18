@@ -48,13 +48,19 @@ router.post("/login", (req, res) => {
             }
         })
         .catch((err) => {
-            res.statusCode = 404;
-            res.setHeader('Content-Type', 'application/json');
-            res.json({ status: 'Registration Not Successfulll' });
+            fs.readFile('./Html/loginfail.html', (err, data) => {
+                res.writeHead(200, { 'content-Type': 'text/html' });
+                res.write(data);
+                res.end();
+            });
         });
 
 });
 
-
+router.get("/one",function(req,res,next){
+    console.log(req.session.username);
+   return res.json({welcome:req.session.username});
+  });
+  
 module.exports = router;
 

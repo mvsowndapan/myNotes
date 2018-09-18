@@ -9,9 +9,8 @@ fs = require('fs'),
 auth = require('./Js/authunticate'),
 mongoStore = require('connect-mongo')(session);
 
-
+var startRouter = require('./routes/startRouter');
 var User = require('./models/user');
-
 var addsentnoteRouter = require('./routes/addsentnoteRouter');
 var users = require('./routes/users');
 
@@ -52,11 +51,11 @@ app.use(session({
     saveUninitialized: false,
     cookie: {}
 }));
-
-app.get("/", (req, res) => {
-    // res.send("Sadfb");
-    res.sendFile(__dirname + "/Html/index.html");
-});
+app.use('/',startRouter);
+// app.get("/", (req, res) => {
+//     // res.send("Sadfb");
+//     res.sendFile(__dirname + "/Html/index.html");
+// });
 
 
 app.use('/users',users);
