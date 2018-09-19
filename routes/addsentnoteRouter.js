@@ -1,5 +1,4 @@
 var express = require('express');
-var app = express();
 var User = require('../models/user');
 var addsendnoteRouter = express.Router();
 

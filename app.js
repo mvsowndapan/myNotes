@@ -3,7 +3,6 @@ const logger = require('morgan');
 var app = express();
 const port = process.env.PORT || 3000;
 var session = require('express-session'); 
-var Filestore = require('session-file-store')(session);
 session = require('express-session'),
 fs = require('fs'),
 mongoStore = require('connect-mongo')(session);

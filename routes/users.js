@@ -1,8 +1,6 @@
 var express = require('express');
 var User = require('../models/user');
-var fs = require('fs');
 var router = express.Router();
-var passport = require('passport');
 
 router.post("/signup", (req, res) => {
     User.findOne({ username: req.body.username })
