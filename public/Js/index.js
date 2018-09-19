@@ -21,33 +21,20 @@ $(document).ready(function () {
                 $("#success").hide();
                 $("#failure").show();
                 console.log("false");
+                setTimeout(function(){
+                    $("#failure").hide();
+                },2000);
             }
             else{
                 $("#success").show();
                 $("#failure").hide();
                 console.log("true");
+                setTimeout(function(){
+                    $("#success").hide();
+                },2000);
             }
             console.log(result);
         });
     });    
 });
 
-// function loadData() {
-//     console.log("function loadData called");
-//     data = "";
-//     $.getJSON('/',function(data){
-//         var df = document.createDocumentFragment(document.getElementById("noteee"));
-//         putQues(data,df);
-//         $("#notee").append(df);
-//     });
-// }
-
-// function putnotes(obj,df) {
-//     obj.forEach(element => {
-//         var str = document.createElement("note");
-//         str.innerHTML = ' <div class="panel panel-success templatenote"><div class="panel-heading">'+ element.title +'</div><div class="panel-body">Message :: '+ element.message +'<br>'+ element.date +'</div></div>';
-//         df.appendChild(str);
-//     });
-// }
-
-// window.onload = loadData();

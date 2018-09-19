@@ -20,10 +20,16 @@ $(document).ready(function () {
                 $("#added").hide();
                 $("#notadded").show();
                 console.log("false");
+                setTimeout(()=>{
+                   $("#notadded").hide();
+                },2000);
             }
             else {
                 $("#added").show();
                 $("#notadded").hide();
+                setTimeout(()=>{
+                   $("#added").hide();
+                },2000);
                 console.log("true");
                 $("#allnotes").append(" <center><div class=\"panel panel-success templatenote\"><div class=\"panel-heading\">"+ name+"</div><div class=\"panel-body\">"+mes+"<br><hr class =\"style14\"/>"+dat+"</div></div></center>");
                }

@@ -1,22 +1,19 @@
 const mongoose = require('mongoose');
-const userModel = require('../models/user');
-var startRouter = require('../routes/startRouter');
+const userModel = require('../../models/user');
+var startRouter = require('../../routes/startRouter');
 
 function validate(req, res, next) {
     console.log('authenticate User : '+req.session.username);
     if (!req.session.username) {
         console.log(req.session);
         console.log('User Not Found');
-        res.send(startRouter.get('/'));
-        // let data = fs.readFileSync('./Html/loginfail.html');
-        // res.send(data);
-        // console.log('redirect');
+        res.redirect("../assets/Html/index.html");
     } else {
         userModel.findOne({
             username: req.session.username
         }).then((data) => {
             if(!data){
-                res.redirect('/');
+                // res.redirect('/');
             }
             else{
                 console.log(data);

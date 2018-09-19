@@ -30,9 +30,9 @@ addsendnoteRouter.post("/addnotes", (req,res) => {
 addsendnoteRouter.get("/allnotes",(req,res) => {
     
  User.findOne({username:req.session.username})
- .then((user)=>{
+ .then((user)=>{ 
      console.log("user.title  ::"+user.notes);
-     return res.json({notes:user.notes});
+     return res.json({notes:user.notes}); 
  });
 });
 

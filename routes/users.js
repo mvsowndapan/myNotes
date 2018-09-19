@@ -33,26 +33,14 @@ router.post("/login", (req, res) => {
         .then((user) => {
             if (user.password === req.body.pass) {
                 req.session.username = user.username;
-                fs.readFile('./Html/User.html', (err, data) => {
-                    res.writeHead(200, { 'content-Type': 'text/html' });
-                    res.write(data);
-                    res.end();
-                });
+                res.redirect('../assets/Html/User.html');
             }
             else {
-                fs.readFile('./Html/loginfail.html', (err, data) => {
-                    res.writeHead(200, { 'content-Type': 'text/html' });
-                    res.write(data);
-                    res.end();
-                });
+                res.redirect("../assets/Html/loginfail.html");
             }
         })
         .catch((err) => {
-            fs.readFile('./Html/loginfail.html', (err, data) => {
-                res.writeHead(200, { 'content-Type': 'text/html' });
-                res.write(data);
-                res.end();
-            });
+            res.redirect("../assets/Html/loginfail.html");
         });
 
 });
